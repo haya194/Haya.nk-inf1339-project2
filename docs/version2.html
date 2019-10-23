@@ -6,22 +6,24 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
         <script>
+            
+            
             var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=big%20apple&api-key=scCf45GDPIJv4RNg5zyY9MWsvmH7WY4h";
             var articleCount = 0
 
             function setup() {
                  
-              noCanvas();
-  
+              noCanvas();                
               loadJSON(url, gotData);
             }
             
             //gotDATA for now just announces itself 
             function gotData(data) {
-                alert("FUNCTION GOT DATA ACTIVATED")
+                
                 var text =''
                 for (i=0; i < data.response.docs.length; i++){
-                    text = text + data.response.[i].headline.main
+                    text = text + '<br />' + 
+                    data.response.docs[i].headline.main
                 }
                 document.getElementById("test_output").innerHTML = text
                }
